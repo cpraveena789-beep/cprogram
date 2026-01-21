@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int age[]={56,73,32,14,6};
+    int n= sizeof(age)/sizeof(age[3]);
+    int sum=0;
+    float average;
+    for(int i=0;i<n;i++)
+    {
+        sum +=age[i];
+    }
+    average = sum/n;
+    printf("Average age = %.2f",average);
+
+    return 0;
+}
