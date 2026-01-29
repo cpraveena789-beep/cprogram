@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Details {
+    char name[20];
+    char dept[10];
+};
+
+struct Student {
+    int roll;
+    struct Details d;
+    struct Student *next;
+};
+
+int main() {
+    struct Student *head = NULL, *temp = NULL, *newNode;
+    int n = 2;
+
+    for (int i = 0; i < n; i++) {
+        newNode = (struct Student *)malloc(sizeof(struct Student));
+
+        scanf("%d %s %s", &newNode->roll,
+                          newNode->d.name,
+                          newNode->d.dept);
+        newNode->next = NULL;
+
+        if (head == NULL) {
+            head = temp = newNode;
+        } else {
+            temp->next = newNode;
+            temp = newNode;
+        }
+    }
+
+    temp = head;
+    while (temp != NULL) {
+        printf("%d %s %s -> ",temp->roll,temp->d.name,temp->d.dept);
+        temp = temp->next;
+    }
+    printf("NULL");
+
+    return 0;
+}
