@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+    int data;
+    struct node *next;
+};
+
+int main() {
+    struct node *head = NULL, *temp;
+
+    struct node *n1 = malloc(sizeof(struct node));
+    struct node *n2 = malloc(sizeof(struct node));
+    struct node *n3 = malloc(sizeof(struct node));
+
+    n1->data = 10;
+    n2->data = 20;
+    n3->data = 30;
+
+    n1->next = n2;
+    n2->next = n3;
+    n3->next = NULL;
+
+    head = n1;
+
+    struct node *newNode = malloc(sizeof(struct node));
+    newNode->data = 40;
+    newNode->next = NULL;
+
+    temp = head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+
+    temp->next = newNode;
+
+    printf("Updated list:\n");
+    temp = head;
+    while (temp != NULL) {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+
+    return 0;
+}
