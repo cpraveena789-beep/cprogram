@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int item;
+    struct Node *next;
+};
+
+int main() {
+    struct Node *head = NULL, *newnode;
+    int n, i, value;
+
+    printf("Enter number of cart items:\n");
+    scanf("%d", &n);
+
+    printf("Enter item values:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &value);
+
+        newnode = (struct Node *)malloc(sizeof(struct Node));
+        newnode->item = value;
+        newnode->next = head;
+        head = newnode;
+    }
+
+    while (head != NULL) {
+        printf("%d -> ", head->item);
+        head = head->next;
+    }
+    printf("NULL");
+
+    return 0;
+}
