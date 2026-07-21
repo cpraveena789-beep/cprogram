@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    int a,f,s,res;
+    printf("Enter any two digits numbers ");
+    scanf("%d",&a);
+    f=a/10;
+    s=a%10;
+    res =s*10+f;
+    printf("Result = %d",res);
+    return 0;
+}
